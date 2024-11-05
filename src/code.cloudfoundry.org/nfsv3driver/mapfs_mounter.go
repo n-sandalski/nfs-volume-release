@@ -193,7 +193,7 @@ func (m *mapfsMounter) Mount(env dockerdriver.Env, remote string, target string,
 		// make sure the mapped user has read access to the directory before doing the mapfs mount
 		// this check is best effort--root may not be able to stat the directory, or the server may
 		// anonymize the owner UID.
-		uid, err := strconv.Atoi(uniformData(opts["uid"]))
+		uid, err := strconv.ParseUint(uniformData(opts["uid"]), 10, 32)
 		if err != nil {
 			return dockerdriver.SafeError{SafeDescription: InvalidUidValueErrorMessage}
 		}
@@ -201,7 +201,7 @@ func (m *mapfsMounter) Mount(env dockerdriver.Env, remote string, target string,
 			return dockerdriver.SafeError{SafeDescription: InvalidUidValueErrorMessage}
 		}
 
-		gid, err := strconv.Atoi(uniformData(opts["gid"]))
+		gid, err := strconv.ParseUint(uniformData(opts["gid"]), 10, 32)
 		if err != nil {
 			return dockerdriver.SafeError{SafeDescription: InvalidGidValueErrorMessage}
 		}
