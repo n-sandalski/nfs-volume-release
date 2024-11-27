@@ -19,6 +19,8 @@ builds:
     version: 7.1.52
   12d058db-7478-43aa-4e89-eccf4b54505e:
     version: 7.1.62
+  133b238a-3146-4b30-4b27-53465d041088:
+    version: 7.10.0
   13993af5-3e1d-48cc-793b-1d05e9b398a7:
     version: 7.1.40
   140b8711-d6af-4f74-72ab-0c8f534489bd:
